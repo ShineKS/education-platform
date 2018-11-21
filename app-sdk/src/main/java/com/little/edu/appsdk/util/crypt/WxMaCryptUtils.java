@@ -2,7 +2,7 @@ package com.little.edu.appsdk.util.crypt;
 
 
 import com.little.edu.appsdk.service.WxMaConfig;
-import me.chanjar.weixin.common.util.crypto.PKCS7Encoder;
+import com.little.edu.common.util.crypto.PKCS7Encoder;
 import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.Cipher;
@@ -14,7 +14,7 @@ import java.security.AlgorithmParameters;
 /**
  * @author <a href="https://github.com/binarywang">Binary Wang</a>
  */
-public class WxMaCryptUtils extends me.chanjar.weixin.common.util.crypto.WxCryptUtil {
+public class WxMaCryptUtils extends com.little.edu.common.util.crypto.WxCryptUtil {
   public WxMaCryptUtils(WxMaConfig config) {
     this.appidOrCorpid = config.getAppid();
     this.token = config.getToken();

@@ -1,7 +1,7 @@
 package com.little.edu.appsdk.service;
 
-import me.chanjar.weixin.common.bean.WxJsapiSignature;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.little.edu.common.bean.WxJsapiSignature;
+import com.little.edu.common.error.WxErrorException;
 
 /**
  * <pre>

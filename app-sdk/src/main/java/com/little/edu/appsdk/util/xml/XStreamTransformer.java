@@ -2,7 +2,7 @@ package com.little.edu.appsdk.util.xml;
 
 import com.little.edu.appsdk.bean.WxMaMessage;
 import com.thoughtworks.xstream.XStream;
-import me.chanjar.weixin.common.util.xml.XStreamInitializer;
+import com.little.edu.common.util.xml.XStreamInitializer;
 
 import java.io.InputStream;
 import java.util.*;

@@ -1,7 +1,7 @@
 package com.little.edu.appsdk.service;
 
 import com.little.edu.appsdk.bean.WxMaDomainAction;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.little.edu.common.error.WxErrorException;
 
 /**
  * 小程序修改服务器地址、成员管理 API（大部分只能是第三方平台调用）

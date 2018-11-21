@@ -5,7 +5,7 @@ import com.little.edu.appsdk.bean.template.WxMaTemplateAddResult;
 import com.little.edu.appsdk.bean.template.WxMaTemplateLibraryGetResult;
 import com.little.edu.appsdk.bean.template.WxMaTemplateLibraryListResult;
 import com.little.edu.appsdk.bean.template.WxMaTemplateListResult;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.little.edu.common.error.WxErrorException;
 
 import java.util.List;
 

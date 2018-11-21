@@ -7,11 +7,11 @@ import com.little.edu.appsdk.bean.code.*;
 import com.little.edu.appsdk.service.WxMaCodeService;
 import com.little.edu.appsdk.service.WxMaService;
 import com.little.edu.appsdk.util.json.WxMaGsonBuilder;
-import me.chanjar.weixin.common.error.WxError;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.http.BaseMediaDownloadRequestExecutor;
-import me.chanjar.weixin.common.util.http.RequestExecutor;
-import me.chanjar.weixin.common.util.json.GsonHelper;
+import com.little.edu.common.error.WxError;
+import com.little.edu.common.error.WxErrorException;
+import com.little.edu.common.util.http.BaseMediaDownloadRequestExecutor;
+import com.little.edu.common.util.http.RequestExecutor;
+import com.little.edu.common.util.json.GsonHelper;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;

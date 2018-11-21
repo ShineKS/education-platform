@@ -5,7 +5,7 @@ import com.little.edu.appsdk.bean.WxMaDomainAction;
 import com.little.edu.appsdk.service.WxMaService;
 import com.little.edu.appsdk.service.WxMaSettingService;
 import com.little.edu.appsdk.util.json.WxMaGsonBuilder;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.little.edu.common.error.WxErrorException;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -2,7 +2,7 @@ package com.little.edu.appsdk.bean.template;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+import com.little.edu.common.util.json.WxGsonBuilder;
 
 import java.io.Serializable;
 import java.util.List;

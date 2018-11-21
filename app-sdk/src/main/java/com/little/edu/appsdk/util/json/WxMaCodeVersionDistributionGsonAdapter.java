@@ -2,7 +2,7 @@ package com.little.edu.appsdk.util.json;
 
 import com.google.gson.*;
 import com.little.edu.appsdk.bean.code.WxMaCodeVersionDistribution;
-import me.chanjar.weixin.common.util.json.GsonHelper;
+import com.little.edu.common.util.json.GsonHelper;
 
 import java.lang.reflect.Type;
 import java.util.LinkedHashMap;

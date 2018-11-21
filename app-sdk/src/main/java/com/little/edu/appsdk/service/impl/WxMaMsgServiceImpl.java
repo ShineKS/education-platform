@@ -8,8 +8,8 @@ import com.little.edu.appsdk.bean.WxMaUniformMessage;
 import com.little.edu.appsdk.constant.WxMaConstants;
 import com.little.edu.appsdk.service.WxMaMsgService;
 import com.little.edu.appsdk.service.WxMaService;
-import me.chanjar.weixin.common.error.WxError;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.little.edu.common.error.WxError;
+import com.little.edu.common.error.WxErrorException;
 
 
 /**

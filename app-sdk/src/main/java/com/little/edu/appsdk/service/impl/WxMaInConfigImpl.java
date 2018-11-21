@@ -1,8 +1,8 @@
 package com.little.edu.appsdk.service.impl;
 
 import com.little.edu.appsdk.service.WxMaConfig;
-import me.chanjar.weixin.common.bean.WxAccessToken;
-import me.chanjar.weixin.common.util.http.apache.ApacheHttpClientBuilder;
+import com.little.edu.common.bean.WxAccessToken;
+import com.little.edu.common.util.http.apache.ApacheHttpClientBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 

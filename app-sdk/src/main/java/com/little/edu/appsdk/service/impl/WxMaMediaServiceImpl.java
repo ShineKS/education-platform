@@ -2,13 +2,13 @@ package com.little.edu.appsdk.service.impl;
 
 import com.little.edu.appsdk.service.WxMaMediaService;
 import com.little.edu.appsdk.service.WxMaService;
-import me.chanjar.weixin.common.bean.result.WxMediaUploadResult;
-import me.chanjar.weixin.common.error.WxError;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.fs.FileUtils;
-import me.chanjar.weixin.common.util.http.BaseMediaDownloadRequestExecutor;
-import me.chanjar.weixin.common.util.http.MediaUploadRequestExecutor;
-import me.chanjar.weixin.common.util.http.RequestExecutor;
+import com.little.edu.common.bean.result.WxMediaUploadResult;
+import com.little.edu.common.error.WxError;
+import com.little.edu.common.error.WxErrorException;
+import com.little.edu.common.util.fs.FileUtils;
+import com.little.edu.common.util.http.BaseMediaDownloadRequestExecutor;
+import com.little.edu.common.util.http.MediaUploadRequestExecutor;
+import com.little.edu.common.util.http.RequestExecutor;
 
 import java.io.File;
 import java.io.IOException;

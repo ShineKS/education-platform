@@ -4,7 +4,7 @@ package com.little.edu.appsdk.service;
 import com.little.edu.appsdk.bean.WxMaKefuMessage;
 import com.little.edu.appsdk.bean.WxMaTemplateMessage;
 import com.little.edu.appsdk.bean.WxMaUniformMessage;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.little.edu.common.error.WxErrorException;
 
 /**
  * <pre>

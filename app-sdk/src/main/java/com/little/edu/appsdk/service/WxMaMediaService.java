@@ -1,7 +1,7 @@
 package com.little.edu.appsdk.service;
 
-import me.chanjar.weixin.common.bean.result.WxMediaUploadResult;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.little.edu.common.bean.result.WxMediaUploadResult;
+import com.little.edu.common.error.WxErrorException;
 
 import java.io.File;
 import java.io.InputStream;

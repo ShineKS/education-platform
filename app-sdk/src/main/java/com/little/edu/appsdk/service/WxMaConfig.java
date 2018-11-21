@@ -2,8 +2,8 @@ package com.little.edu.appsdk.service;
 
 
 
-import me.chanjar.weixin.common.bean.WxAccessToken;
-import me.chanjar.weixin.common.util.http.apache.ApacheHttpClientBuilder;
+import com.little.edu.common.bean.WxAccessToken;
+import com.little.edu.common.util.http.apache.ApacheHttpClientBuilder;
 
 import java.util.concurrent.locks.Lock;
 

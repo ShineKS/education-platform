@@ -2,7 +2,7 @@ package com.little.edu.appsdk.util.json;
 
 import com.google.gson.*;
 import com.little.edu.appsdk.bean.analysis.WxMaUserPortrait;
-import me.chanjar.weixin.common.util.json.GsonHelper;
+import com.little.edu.common.util.json.GsonHelper;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Type;

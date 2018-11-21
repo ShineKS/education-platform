@@ -7,7 +7,7 @@ import com.little.edu.appsdk.bean.analysis.*;
 import com.little.edu.appsdk.service.WxMaAnalysisService;
 import com.little.edu.appsdk.service.WxMaService;
 import com.little.edu.appsdk.util.json.WxMaGsonBuilder;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.little.edu.common.error.WxErrorException;
 import org.apache.commons.lang3.time.DateFormatUtils;
 
 import java.lang.reflect.Type;

@@ -6,9 +6,9 @@ import com.little.edu.appsdk.bean.template.WxMaTemplateLibraryListResult;
 import com.little.edu.appsdk.bean.template.WxMaTemplateListResult;
 import com.little.edu.appsdk.service.WxMaService;
 import com.little.edu.appsdk.service.WxMaTemplateService;
-import me.chanjar.weixin.common.error.WxError;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+import com.little.edu.common.error.WxError;
+import com.little.edu.common.error.WxErrorException;
+import com.little.edu.common.util.json.WxGsonBuilder;
 
 import java.util.HashMap;
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.little.edu.appsdk.service;
 
 import com.little.edu.appsdk.bean.WxMaCodeLineColor;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.little.edu.common.error.WxErrorException;
 
 import java.io.File;
 

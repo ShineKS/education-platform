@@ -1,13 +1,13 @@
 package com.little.edu.appsdk.util.http;
 
 import com.little.edu.appsdk.bean.AbstractWxMaQrcodeWrapper;
-import me.chanjar.weixin.common.error.WxError;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.fs.FileUtils;
-import me.chanjar.weixin.common.util.http.RequestExecutor;
-import me.chanjar.weixin.common.util.http.RequestHttp;
-import me.chanjar.weixin.common.util.http.apache.InputStreamResponseHandler;
-import me.chanjar.weixin.common.util.http.apache.Utf8ResponseHandler;
+import com.little.edu.common.error.WxError;
+import com.little.edu.common.error.WxErrorException;
+import com.little.edu.common.util.fs.FileUtils;
+import com.little.edu.common.util.http.RequestExecutor;
+import com.little.edu.common.util.http.RequestHttp;
+import com.little.edu.common.util.http.apache.InputStreamResponseHandler;
+import com.little.edu.common.util.http.apache.Utf8ResponseHandler;
 import org.apache.http.Header;
 import org.apache.http.HttpHost;
 import org.apache.http.client.config.RequestConfig;

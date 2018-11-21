@@ -10,9 +10,9 @@ import com.little.edu.appsdk.service.WxMaConfig;
 import com.little.edu.appsdk.service.WxMaService;
 import com.little.edu.appsdk.service.WxMaUserService;
 import com.little.edu.appsdk.util.crypt.WxMaCryptUtils;
-import me.chanjar.weixin.common.error.WxError;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.SignUtils;
+import com.little.edu.common.error.WxError;
+import com.little.edu.common.error.WxErrorException;
+import com.little.edu.common.util.SignUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.util.Map;

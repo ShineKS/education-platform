@@ -7,7 +7,7 @@ import com.little.edu.appsdk.bean.WxaCodeUnlimit;
 import com.little.edu.appsdk.service.WxMaQrcodeService;
 import com.little.edu.appsdk.service.WxMaService;
 import com.little.edu.appsdk.util.http.QrCodeRequestExecutor;
-import me.chanjar.weixin.common.error.WxErrorException;
+import com.little.edu.common.error.WxErrorException;
 
 import java.io.File;
 

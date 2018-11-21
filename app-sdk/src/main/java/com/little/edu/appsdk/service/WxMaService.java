@@ -1,10 +1,10 @@
 package com.little.edu.appsdk.service;
 
 import com.little.edu.appsdk.bean.WxMaJscode2SessionResult;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.http.MediaUploadRequestExecutor;
-import me.chanjar.weixin.common.util.http.RequestExecutor;
-import me.chanjar.weixin.common.util.http.RequestHttp;
+import com.little.edu.common.error.WxErrorException;
+import com.little.edu.common.util.http.MediaUploadRequestExecutor;
+import com.little.edu.common.util.http.RequestExecutor;
+import com.little.edu.common.util.http.RequestHttp;
 
 import java.io.File;
 

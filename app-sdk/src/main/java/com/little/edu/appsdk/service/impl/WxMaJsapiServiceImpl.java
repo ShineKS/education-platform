@@ -4,10 +4,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.little.edu.appsdk.service.WxMaJsapiService;
 import com.little.edu.appsdk.service.WxMaService;
-import me.chanjar.weixin.common.bean.WxJsapiSignature;
-import me.chanjar.weixin.common.error.WxErrorException;
-import me.chanjar.weixin.common.util.RandomUtils;
-import me.chanjar.weixin.common.util.crypto.SHA1;
+import com.little.edu.common.bean.WxJsapiSignature;
+import com.little.edu.common.error.WxErrorException;
+import com.little.edu.common.util.RandomUtils;
+import com.little.edu.common.util.crypto.SHA1;
 
 import java.util.concurrent.locks.Lock;
 
