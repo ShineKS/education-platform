@@ -6,6 +6,13 @@
     <groupId>com.little.edu</groupId>
     <artifactId>education</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>2.0.5.RELEASE</version>
+        </dependency>
+    </dependencies>
     <packaging>pom</packaging>
     <name>education</name>
     <description>咱们的第一个教育小程序</description>
