@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.generator.dao.QrtzCronTriggersDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.generator.entity.QrtzCronTriggersEntity" id="qrtzCronTriggersMap">
+        <result property="schedName" column="SCHED_NAME"/>
+        <result property="triggerName" column="TRIGGER_NAME"/>
+        <result property="triggerGroup" column="TRIGGER_GROUP"/>
+        <result property="cronExpression" column="CRON_EXPRESSION"/>
+        <result property="timeZoneId" column="TIME_ZONE_ID"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.generator.dao.QrtzSimpropTriggersDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.generator.entity.QrtzSimpropTriggersEntity" id="qrtzSimpropTriggersMap">
+        <result property="schedName" column="SCHED_NAME"/>
+        <result property="triggerName" column="TRIGGER_NAME"/>
+        <result property="triggerGroup" column="TRIGGER_GROUP"/>
+        <result property="strProp1" column="STR_PROP_1"/>
+        <result property="strProp2" column="STR_PROP_2"/>
+        <result property="strProp3" column="STR_PROP_3"/>
+        <result property="intProp1" column="INT_PROP_1"/>
+        <result property="intProp2" column="INT_PROP_2"/>
+        <result property="longProp1" column="LONG_PROP_1"/>
+        <result property="longProp2" column="LONG_PROP_2"/>
+        <result property="decProp1" column="DEC_PROP_1"/>
+        <result property="decProp2" column="DEC_PROP_2"/>
+        <result property="boolProp1" column="BOOL_PROP_1"/>
+        <result property="boolProp2" column="BOOL_PROP_2"/>
+    </resultMap>
+
+
+</mapper>

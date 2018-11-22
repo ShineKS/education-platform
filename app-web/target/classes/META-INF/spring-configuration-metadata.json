@@ -1,0 +1,40 @@
+{
+  "groups": [
+    {
+      "name": "renren.jwt",
+      "type": "com.little.edu.appweb.modules.app.utils.JwtUtils",
+      "sourceType": "com.little.edu.appweb.modules.app.utils.JwtUtils"
+    },
+    {
+      "name": "spring.datasource.druid.first",
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.little.edu.appweb.datasources.DynamicDataSourceConfig",
+      "sourceMethod": "firstDataSource()"
+    },
+    {
+      "name": "spring.datasource.druid.second",
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.little.edu.appweb.datasources.DynamicDataSourceConfig",
+      "sourceMethod": "secondDataSource()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "renren.jwt.expire",
+      "type": "java.lang.Long",
+      "sourceType": "com.little.edu.appweb.modules.app.utils.JwtUtils",
+      "defaultValue": 0
+    },
+    {
+      "name": "renren.jwt.header",
+      "type": "java.lang.String",
+      "sourceType": "com.little.edu.appweb.modules.app.utils.JwtUtils"
+    },
+    {
+      "name": "renren.jwt.secret",
+      "type": "java.lang.String",
+      "sourceType": "com.little.edu.appweb.modules.app.utils.JwtUtils"
+    }
+  ],
+  "hints": []
+}
