@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.little.edu.appweb.modules.smallapp.dao.WeixinUserDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.little.edu.appweb.modules.smallapp.entity.WeixinUserEntity" id="weixinUserMap">
+        <result property="id" column="id"/>
+        <result property="openId" column="open_id"/>
+        <result property="nickName" column="nick_name"/>
+        <result property="gender" column="gender"/>
+        <result property="city" column="city"/>
+        <result property="province" column="province"/>
+        <result property="country" column="country"/>
+        <result property="avatarUrl" column="avatar_url"/>
+        <result property="unionId" column="union_id"/>
+        <result property="createDate" column="create_date"/>
+    </resultMap>
+
+
+</mapper>

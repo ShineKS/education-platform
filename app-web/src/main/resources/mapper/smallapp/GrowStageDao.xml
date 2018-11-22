@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.little.edu.appweb.modules.smallapp.dao.GrowStageDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.little.edu.appweb.modules.smallapp.entity.GrowStageEntity" id="growStageMap">
+        <result property="id" column="id"/>
+        <result property="orgId" column="org_id"/>
+        <result property="diaryId" column="diary_id"/>
+        <result property="stageScore" column="stage_score"/>
+        <result property="stageRemark" column="stage_remark"/>
+        <result property="knowledgePoint" column="knowledge_point"/>
+        <result property="createDate" column="create_date"/>
+    </resultMap>
+
+
+</mapper>

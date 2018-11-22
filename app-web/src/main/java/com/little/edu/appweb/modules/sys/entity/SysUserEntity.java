@@ -80,6 +80,11 @@ public class SysUserEntity implements Serializable {
 	private Date createTime;
 
 	/**
+	 * 公司id
+	 */
+	private Long orgId;
+
+	/**
 	 * 设置：
 	 * @param userId 
 	 */
