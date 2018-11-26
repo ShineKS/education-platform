@@ -22,6 +22,9 @@ import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
@@ -35,11 +38,14 @@ import static com.little.edu.appsdk.constant.WxMaConstants.ErrorCode.*;
 /**
  * @author <a href="https://github.com/binarywang">Binary Wang</a>
  */
+@Service
 public class WxMaServiceImpl implements WxMaService, RequestHttp<CloseableHttpClient, HttpHost> {
   private final Logger log = LoggerFactory.getLogger(this.getClass());
 
   private CloseableHttpClient httpClient;
   private HttpHost httpProxy;
+
+  @Autowired
   private WxMaConfig wxMaConfig;
 
   private WxMaMsgService kefuService = new WxMaMsgServiceImpl(this);
@@ -59,6 +65,9 @@ public class WxMaServiceImpl implements WxMaService, RequestHttp<CloseableHttpCl
 
   @Override
   public CloseableHttpClient getRequestHttpClient() {
+    if (httpClient == null) {
+      initHttp();
+    }
     return httpClient;
   }
 

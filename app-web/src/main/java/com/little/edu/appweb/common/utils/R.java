@@ -40,7 +40,12 @@ public class R extends HashMap<String, Object> {
 		r.put("msg", msg);
 		return r;
 	}
-	
+	public static R ok(Object obj,String msg) {
+		R r = new R();
+		r.put("msg", msg);
+		r.put("data", obj);
+		return r;
+	}
 	public static R ok(Map<String, Object> map) {
 		R r = new R();
 		r.putAll(map);
@@ -51,6 +56,7 @@ public class R extends HashMap<String, Object> {
 		return new R();
 	}
 
+	@Override
 	public R put(String key, Object value) {
 		super.put(key, value);
 		return this;

@@ -1,5 +1,6 @@
 package com.little.edu.appweb.config;
 
+import com.little.edu.appweb.common.utils.RedisUtils;
 import com.little.edu.appweb.modules.sys.oauth2.OAuth2Filter;
 import com.little.edu.appweb.modules.sys.oauth2.OAuth2Realm;
 import org.apache.shiro.mgt.SecurityManager;
@@ -10,6 +11,7 @@ import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -27,6 +29,8 @@ import java.util.Map;
  */
 @Configuration
 public class ShiroConfig {
+
+
 
     @Bean("sessionManager")
     public SessionManager sessionManager(){
@@ -46,13 +50,13 @@ public class ShiroConfig {
     }
 
     @Bean("shiroFilter")
-    public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
+    public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager,RedisUtils redisUtils) {
         ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
         shiroFilter.setSecurityManager(securityManager);
 
         //oauth过滤
         Map<String, Filter> filters = new HashMap<>();
-        filters.put("oauth2", new OAuth2Filter());
+        filters.put("oauth2", new OAuth2Filter(redisUtils));
         shiroFilter.setFilters(filters);
 
         Map<String, String> filterMap = new LinkedHashMap<>();
@@ -65,6 +69,7 @@ public class ShiroConfig {
         filterMap.put("/swagger-ui.html", "anon");
         filterMap.put("/swagger-resources/**", "anon");
         filterMap.put("/captcha.jpg", "anon");
+        filterMap.put("/smallapp/wxLogin", "anon");
         filterMap.put("/**", "oauth2");
         shiroFilter.setFilterChainDefinitionMap(filterMap);
 

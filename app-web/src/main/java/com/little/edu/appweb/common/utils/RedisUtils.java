@@ -57,6 +57,12 @@ public class RedisUtils {
         return get(key, clazz, NOT_EXPIRE);
     }
 
+    /**
+     *
+     * @param key
+     * @param expire 单位:秒
+     * @return
+     */
     public String get(String key, long expire) {
         String value = valueOperations.get(key);
         if(expire != NOT_EXPIRE){
