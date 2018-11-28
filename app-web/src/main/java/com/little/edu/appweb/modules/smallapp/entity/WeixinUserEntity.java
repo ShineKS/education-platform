@@ -2,6 +2,7 @@ package com.little.edu.appweb.modules.smallapp.entity;
 
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -54,6 +55,8 @@ public class WeixinUserEntity implements Serializable {
 	 * 开放平台的全局唯一id，预留字段
 	 */
 	private String unionId;
+
+	private String phoneNumber;
 	/**
 	 * 
 	 */
@@ -178,5 +181,13 @@ public class WeixinUserEntity implements Serializable {
 	 */
 	public Date getCreateDate() {
 		return createDate;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 }

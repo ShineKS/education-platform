@@ -43,6 +43,10 @@ public class ChildEntity implements Serializable {
 	 */
 	private Long headPicId;
 	/**
+	 * 机构关联孩子的code
+	 */
+	private String bindingCode;
+	/**
 	 * 
 	 */
 	private Date createDate;
@@ -130,5 +134,13 @@ public class ChildEntity implements Serializable {
 	 */
 	public Date getCreateDate() {
 		return createDate;
+	}
+
+	public String getBindingCode() {
+		return bindingCode;
+	}
+
+	public void setBindingCode(String bindingCode) {
+		this.bindingCode = bindingCode;
 	}
 }

@@ -11,6 +11,7 @@
         <result property="age" column="age"/>
         <result property="guarderId" column="guarder_id"/>
         <result property="headPicId" column="head_pic_id"/>
+        <result property="bindingCode" column="binding_code"/>
         <result property="createDate" column="create_date"/>
     </resultMap>
 

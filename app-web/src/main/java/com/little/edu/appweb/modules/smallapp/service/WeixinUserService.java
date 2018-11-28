@@ -2,6 +2,7 @@ package com.little.edu.appweb.modules.smallapp.service;
 
 import com.baomidou.mybatisplus.service.IService;
 import com.little.edu.appweb.common.utils.PageUtils;
+import com.little.edu.appweb.common.utils.R;
 import com.little.edu.appweb.modules.smallapp.entity.WeixinUserEntity;
 
 import java.util.Map;
@@ -16,5 +17,11 @@ import java.util.Map;
 public interface WeixinUserService extends IService<WeixinUserEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+    /**
+     * 更新或者插入微信粉丝表
+     * @param userEntity
+     * @return
+     */
+    R insertOrupdateFuns(WeixinUserEntity userEntity);
 }
 

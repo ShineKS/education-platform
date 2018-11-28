@@ -14,13 +14,17 @@ import com.little.edu.common.error.WxError;
 import com.little.edu.common.error.WxErrorException;
 import com.little.edu.common.util.SignUtils;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
 /**
  * @author <a href="https://github.com/binarywang">Binary Wang</a>
  */
+@Service
 public class WxMaUserServiceImpl implements WxMaUserService {
+  @Autowired
   private WxMaService service;
 
   public WxMaUserServiceImpl(WxMaService service) {
