@@ -44,7 +44,7 @@ public class SmallLoginServiceImpl implements SmallLoginService {
         String session = HttpContextUtils.getHeaderParam("session", request);
         String openid = redisUtils.get(RedisKey.SESSION + session);
         if (!StringUtils.isEmpty(openid)) {
-            redisUtils.set(RedisKey.SESSION + session, openid, 2);
+            redisUtils.set(RedisKey.SESSION + session, openid, 28800);
             return R.ok(session, "登录成功");
         }
         if (req == null) {
@@ -58,7 +58,7 @@ public class SmallLoginServiceImpl implements SmallLoginService {
             WxMaJscode2SessionResult data = wxMaService.jsCode2SessionInfo(req.getCode());
             // 存入redis
             session = SessionUtil.genSession();
-            redisUtils.set(RedisKey.SESSION + session, data.getOpenid(), 2);
+            redisUtils.set(RedisKey.SESSION + session, data.getOpenid(), 28800);
             //更新或插入粉丝表
             WxMaUserInfo userInfo = wxMaUserService.getUserInfo(data.getSessionKey(), req.getEncryptedData(), req.getIv());
             if (userInfo != null) {

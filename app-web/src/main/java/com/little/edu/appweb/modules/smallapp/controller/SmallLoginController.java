@@ -6,7 +6,6 @@ import com.little.edu.appweb.modules.smallapp.service.SmallLoginService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpServletRequest;
 
 
@@ -30,8 +29,9 @@ public class SmallLoginController {
         return smallLoginService.appLogin(request,req);
     }
 
-    @PostMapping("/addFuns")
-    public Object addFuns() {
-        return null;
+    @PostMapping("/hello")
+    public Object addFuns(@RequestAttribute("openId")String openId) {
+        System.out.println(1);
+        return "hello";
     }
 }

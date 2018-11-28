@@ -1,6 +1,7 @@
 package com.little.edu.appweb.modules.sys.oauth2;
 
 import com.google.gson.Gson;
+import com.little.edu.appweb.common.constant.RedisKey;
 import com.little.edu.appweb.common.utils.HttpContextUtils;
 import com.little.edu.appweb.common.utils.R;
 import com.little.edu.appweb.common.utils.RedisUtils;
@@ -64,10 +65,11 @@ public class OAuth2Filter extends AuthenticatingFilter {
         if(StringUtils.isEmpty(session)){
             return false;
         }
-        String local = redisUtils.get(session);
+        String local = redisUtils.get(RedisKey.SESSION+session);
         if (StringUtils.isEmpty(local)) {
             return false;
         }
+        request.setAttribute("openId",local);
         return true;
     }
 
