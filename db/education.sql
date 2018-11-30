@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2018/11/21 20:42:21                          */
+/* Created on:     2018/11/28 16:38:39                          */
 /*==============================================================*/
 
 
@@ -38,13 +38,22 @@ drop table if exists weixin_user;
 create table attach_relation
 (
    id                   bigint not null,
-   data_id              bigint not null comment 'æ•°æ®id',
-   attachment_id        bigint not null comment 'é™„ä»¶è¡¨id',
-   data_type            tinyint not null comment '1-å­¦ç”Ÿèµ„æ–™ 2-æˆé•¿ä¹‹è·¯ 3-å®¶é•¿è¯„ä»·',
+   data_id              bigint not null comment 'Êı¾İid',
+   attachment_id        bigint not null comment '¸½¼ş±íid',
+   data_type            tinyint not null comment '1-Ñ§Éú×ÊÁÏ 2-³É³¤Ö®Â· 3-¼Ò³¤ÆÀ¼Û',
    primary key (id)
 );
 
-alter table attach_relation comment 'é™„ä»¶èµ„æºå…³ç³»è¡¨';
+alter table attach_relation comment '¸½¼ş×ÊÔ´¹ØÏµ±í';
+
+/*==============================================================*/
+/* Index: data_rel_idx                                          */
+/*==============================================================*/
+create index data_rel_idx on attach_relation
+(
+   data_id,
+   data_type
+);
 
 /*==============================================================*/
 /* Table: attachment                                            */
@@ -52,17 +61,17 @@ alter table attach_relation comment 'é™„ä»¶èµ„æºå…³ç³»è¡¨';
 create table attachment
 (
    id                   bigint not null,
-   name                 varchar(200) not null comment 'æ–‡ä»¶åç§°',
+   name                 varchar(200) not null comment 'ÎÄ¼şÃû³Æ',
    size                 bigint not null,
-   location             varchar(1000) not null comment 'æ–‡ä»¶åœ°å€',
-   file_type            tinyint not null comment 'æ–‡ä»¶ç±»å‹ 1-å›¾ç‰‡ 2-è§†é¢‘',
-   org_id               bigint not null comment 'å…¬å¸id',
+   location             varchar(1000) not null comment 'ÎÄ¼şµØÖ·',
+   file_type            tinyint not null comment 'ÎÄ¼şÀàĞÍ 1-Í¼Æ¬ 2-ÊÓÆµ',
+   org_id               bigint not null comment '¹«Ë¾id',
    create_date          datetime not null,
-   is_delete            tinyint not null default 0 comment '0-æœªåˆ é™¤ 1-å·²åˆ é™¤',
+   is_delete            tinyint not null default 0 comment '0-Î´É¾³ı 1-ÒÑÉ¾³ı',
    primary key (id)
 );
 
-alter table attachment comment 'é™„ä»¶è¡¨';
+alter table attachment comment '¸½¼ş±í';
 
 /*==============================================================*/
 /* Table: child                                                 */
@@ -71,15 +80,24 @@ create table child
 (
    id                   bigint not null,
    name                 varchar(15) not null,
-   sex                  tinyint not null default 0 comment '0-æœªçŸ¥ 1-ç”· 2-å¥³ 3-å…¶ä»–',
+   sex                  tinyint not null default 0 comment '0-Î´Öª 1-ÄĞ 2-Å® 3-ÆäËû',
    age                  tinyint,
    guarder_id           bigint,
    head_pic_id          bigint,
+   binding_code         varchar(20) comment 'ÓÃÓÚ»ú¹¹°ó¶¨º¢×Ó£¬ÓÃÍê¾ÍË¢ĞÂ',
    create_date          datetime not null,
    primary key (id)
 );
 
-alter table child comment 'è®°å½•æ¯ä¸€ä¸ªå­©å­çš„å®ä½“';
+alter table child comment '¼ÇÂ¼Ã¿Ò»¸öº¢×ÓµÄÊµÌå';
+
+/*==============================================================*/
+/* Index: child_idx                                             */
+/*==============================================================*/
+create index child_idx on child
+(
+   guarder_id
+);
 
 /*==============================================================*/
 /* Table: class_info                                            */
@@ -90,11 +108,19 @@ create table class_info
    org_id               bigint not null,
    name                 varchar(50) not null,
    student_num          int not null,
-   is_finish            bool not null default 0 comment 'æ˜¯å¦å…¨éƒ¨æ¯•ä¸š,ç­çº§æ˜¯å¦ç»“è¯¾',
-   finish_date          datetime comment 'ç­çº§ç»“è¯¾æ—¶é—´',
-   course_id            bigint not null comment 'å½“å‰è¯¾ç¨‹id',
+   is_finish            bool not null default 0 comment 'ÊÇ·ñÈ«²¿±ÏÒµ,°à¼¶ÊÇ·ñ½á¿Î',
+   finish_date          datetime comment '°à¼¶½á¿ÎÊ±¼ä',
+   course_id            bigint not null comment 'µ±Ç°¿Î³Ìid',
    create_date          datetime not null,
    primary key (id)
+);
+
+/*==============================================================*/
+/* Index: class_idx                                             */
+/*==============================================================*/
+create index class_idx on class_info
+(
+   org_id
 );
 
 /*==============================================================*/
@@ -105,13 +131,21 @@ create table course_libary
    id                   bigint not null,
    org_id               bigint not null,
    name                 varchar(50) not null,
-   content           varchar(1000) not null,
+   content              varchar(1000) not null,
    create_date          datetime not null,
    is_delete            tinyint not null default 0,
    primary key (id)
 );
 
-alter table course_libary comment 'è¯¾ç¨‹åº“è¡¨,è®°å½•æœºæ„çš„æ‰€æœ‰è¯¾ç¨‹';
+alter table course_libary comment '¿Î³Ì¿â±í,¼ÇÂ¼»ú¹¹µÄËùÓĞ¿Î³Ì';
+
+/*==============================================================*/
+/* Index: course_idx                                            */
+/*==============================================================*/
+create index course_idx on course_libary
+(
+   org_id
+);
 
 /*==============================================================*/
 /* Table: grow_diary                                            */
@@ -120,18 +154,34 @@ create table grow_diary
 (
    id                   bigint not null,
    org_id               bigint not null,
-   child_id             bigint not null comment 'childè¡¨id',
-   student_id           bigint not null comment 'studentè¡¨id',
-   course_id            bigint not null comment 'course_libaryè¡¨id',
+   child_id             bigint not null comment 'child±íid',
+   student_id           bigint not null comment 'student±íid',
+   course_id            bigint not null comment 'course_libary±íid',
    class_id             bigint not null,
    course_name          varchar(20) not null,
-   status               tinyint not null comment '0-æˆé•¿ä¸­ 1-å·²æ¯•ä¸š',
+   status               tinyint not null comment '0-³É³¤ÖĞ 1-ÒÑ±ÏÒµ',
    finish_date          datetime,
    create_date          datetime not null,
    primary key (id)
 );
 
-alter table grow_diary comment 'æˆé•¿æ—¥è®°æ—¥è®°è¡¨';
+alter table grow_diary comment '³É³¤ÈÕ¼ÇÈÕ¼Ç±í';
+
+/*==============================================================*/
+/* Index: diary_idx                                             */
+/*==============================================================*/
+create index diary_idx on grow_diary
+(
+   child_id
+);
+
+/*==============================================================*/
+/* Index: diary_idx1                                            */
+/*==============================================================*/
+create index diary_idx1 on grow_diary
+(
+   student_id
+);
 
 /*==============================================================*/
 /* Table: grow_stage                                            */
@@ -140,15 +190,23 @@ create table grow_stage
 (
    id                   bigint not null,
    org_id               bigint not null,
-   diary_id             bigint not null comment 'æˆé•¿æ—¥è®°id',
+   diary_id             bigint not null comment '³É³¤ÈÕ¼Çid',
    stage_score          int not null comment 'stage_score',
-   stage_remark         varchar(500) not null comment 'æœºæ„çš„é˜¶æ®µè¯„ä»·',
-   knowledge_point      varchar(500) comment 'æœºæ„å¡«å†™çš„çŸ¥è¯†ç‚¹',
+   stage_remark         varchar(500) not null comment '»ú¹¹µÄ½×¶ÎÆÀ¼Û',
+   knowledge_point      varchar(500) comment '»ú¹¹ÌîĞ´µÄÖªÊ¶µã',
    create_date          datetime not null,
    primary key (id)
 );
 
-alter table grow_stage comment 'è®°å½•æ¯ä¸ªæˆé•¿æ—¥è®°çš„é˜¶æ®µå†…å®¹';
+alter table grow_stage comment '¼ÇÂ¼Ã¿¸ö³É³¤ÈÕ¼ÇµÄ½×¶ÎÄÚÈİ';
+
+/*==============================================================*/
+/* Index: stage_idx                                             */
+/*==============================================================*/
+create index stage_idx on grow_stage
+(
+   diary_id
+);
 
 /*==============================================================*/
 /* Table: grow_stage_item_score                                 */
@@ -156,14 +214,14 @@ alter table grow_stage comment 'è®°å½•æ¯ä¸ªæˆé•¿æ—¥è®°çš„é˜¶æ®µå†…å®¹';
 create table grow_stage_item_score
 (
    id                   bigint not null,
-   stage_id             bigint not null comment 'æˆé•¿é˜¶æ®µçš„id',
-   item_name            varchar(20) not null comment 'æŠ¥å‘Šé¡¹åç§°',
-   item_score           int not null comment 'æŠ¥å‘Šé¡¹å¾—åˆ†',
-   item_type            tinyint not null comment '1-é˜¶æ®µæŠ¥å‘Š 2-å®¶é•¿è¯„ä»·',
+   stage_id             bigint not null comment '³É³¤½×¶ÎµÄid',
+   item_name            varchar(20) not null comment '±¨¸æÏîÃû³Æ',
+   item_score           int not null comment '±¨¸æÏîµÃ·Ö',
+   item_type            tinyint not null comment '1-½×¶Î±¨¸æ 2-¼Ò³¤ÆÀ¼Û',
    primary key (id)
 );
 
-alter table grow_stage_item_score comment 'æˆé•¿ä¹‹è·¯æŠ¥å‘Šè¡¨';
+alter table grow_stage_item_score comment '³É³¤Ö®Â·±¨¸æ±í';
 
 /*==============================================================*/
 /* Table: guarder                                               */
@@ -186,12 +244,12 @@ create table org
    id                   bigint not null,
    name                 varchar(100) not null,
    create_date          datetime not null,
-   status               tinyint not null default 0 comment '0-æ­£å¸¸ ',
-   logo_id              bigint comment 'å¯¹åº”attachè¡¨çš„id',
+   status               tinyint not null default 0 comment '0-Õı³£ ',
+   logo_id              bigint comment '¶ÔÓ¦attach±íµÄid',
    primary key (id)
 );
 
-alter table org comment 'å…¬å¸è¡¨';
+alter table org comment '¹«Ë¾±í';
 
 /*==============================================================*/
 /* Table: remark_template                                       */
@@ -206,7 +264,15 @@ create table remark_template
    primary key (id)
 );
 
-alter table remark_template comment 'é˜¶æ®µè¯„ä»·æ¨¡æ¿';
+alter table remark_template comment '½×¶ÎÆÀ¼ÛÄ£°å';
+
+/*==============================================================*/
+/* Index: temp_idx                                              */
+/*==============================================================*/
+create index temp_idx on remark_template
+(
+   org_id
+);
 
 /*==============================================================*/
 /* Table: stage_evaluation                                      */
@@ -214,16 +280,24 @@ alter table remark_template comment 'é˜¶æ®µè¯„ä»·æ¨¡æ¿';
 create table stage_evaluation
 (
    id                   bigint not null,
-   stage_id             bigint not null comment 'æˆé•¿é˜¶æ®µid',
-   open_id              varchar(200) not null comment 'å®¶é•¿çš„openid',
+   stage_id             bigint not null comment '³É³¤½×¶Îid',
+   open_id              varchar(200) not null comment '¼Ò³¤µÄopenid',
    remark               varchar(500) not null,
-   accept_percent       int not null comment 'çŸ¥è¯†å¸æ”¶ç™¾åˆ†æ¯”ï¼Œå‚¨å­˜æ•´æ•°',
-   type                 tinyint not null comment '1-é˜¶æ®µè¯„ä»· 2-æ—¥è®°æ€»è¯„',
+   accept_percent       int not null comment 'ÖªÊ¶ÎüÊÕ°Ù·Ö±È£¬´¢´æÕûÊı',
+   type                 tinyint not null comment '1-½×¶ÎÆÀ¼Û 2-ÈÕ¼Ç×ÜÆÀ',
    create_date          datetime not null,
    primary key (id)
 );
 
-alter table stage_evaluation comment 'å®¶é•¿å¯¹äºæ¯ä¸ªæ—¥è®°æ¯ä¸ªé˜¶æ®µçš„æˆé•¿ä¹‹è·¯è¯„ä»·';
+alter table stage_evaluation comment '¼Ò³¤¶ÔÓÚÃ¿¸öÈÕ¼ÇÃ¿¸ö½×¶ÎµÄ³É³¤Ö®Â·ÆÀ¼Û';
+
+/*==============================================================*/
+/* Index: stage_eva_idx                                         */
+/*==============================================================*/
+create index stage_eva_idx on stage_evaluation
+(
+   stage_id
+);
 
 /*==============================================================*/
 /* Table: student                                               */
@@ -231,17 +305,26 @@ alter table stage_evaluation comment 'å®¶é•¿å¯¹äºæ¯ä¸ªæ—¥è®°æ¯ä¸ªé˜¶æ®µçš„æˆ
 create table student
 (
    id                   bigint not null,
-   remark_name          varchar(20) comment 'å¤‡æ³¨åç§°,æœºæ„ç»™å­©å­èµ·çš„åˆ«å',
+   remark_name          varchar(20) comment '±¸×¢Ãû³Æ,»ú¹¹¸øº¢×ÓÆğµÄ±ğÃû',
    org_id               bigint not null,
-   child_id             bigint comment 'å­©å­è¡¨id',
-   class_id             bigint comment 'å½“å‰ç­çº§id',
+   child_id             bigint comment 'º¢×Ó±íid',
+   class_id             bigint comment 'µ±Ç°°à¼¶id',
    note                 varchar(500),
-   creater_id           bigint not null comment 'åˆ›å»ºäººid,è¡¨sys_user',
+   creater_id           bigint not null comment '´´½¨ÈËid,±ísys_user',
    create_date          datetime not null,
    primary key (id)
 );
 
-alter table student comment 'å­¦å‘˜è¡¨';
+alter table student comment 'Ñ§Ô±±í';
+
+/*==============================================================*/
+/* Index: stud_idx                                              */
+/*==============================================================*/
+create index stud_idx on student
+(
+   org_id,
+   class_id
+);
 
 /*==============================================================*/
 /* Table: weixin_user                                           */
@@ -250,16 +333,25 @@ create table weixin_user
 (
    id                   bigint not null,
    open_id              varchar(200) not null,
-   nick_name            varchar(50) not null comment 'ç”¨æˆ·æ˜µç§°',
-   gender               tinyint comment '0-æœªçŸ¥ 1-ç”·æ€§ 2-å¥³æ€§',
+   nick_name            varchar(50) not null comment 'ÓÃ»§êÇ³Æ',
+   gender               tinyint comment '0-Î´Öª 1-ÄĞĞÔ 2-Å®ĞÔ',
    city                 varchar(20),
    province             varchar(10),
    country              varchar(10),
-   avatar_url           varchar(300) not null comment 'æœ€åä¸€ä¸ªæ•°å€¼ä»£è¡¨æ­£æ–¹å½¢å¤´åƒå¤§å°ï¼ˆæœ‰ 0ã€46ã€64ã€96ã€132 æ•°å€¼å¯é€‰ï¼Œ0 ä»£è¡¨ 640x640 çš„æ­£æ–¹å½¢å¤´åƒï¼Œ46 è¡¨ç¤º 46x46 çš„æ­£æ–¹å½¢å¤´åƒï¼Œå‰©ä½™æ•°å€¼ä»¥æ­¤ç±»æ¨ã€‚é»˜è®¤132ï¼‰ï¼Œç”¨æˆ·æ²¡æœ‰å¤´åƒæ—¶è¯¥é¡¹ä¸ºç©ºã€‚è‹¥ç”¨æˆ·æ›´æ¢å¤´åƒï¼ŒåŸæœ‰å¤´åƒ URL å°†å¤±æ•ˆã€‚',
-   union_id             varchar(100) comment 'å¼€æ”¾å¹³å°çš„å…¨å±€å”¯ä¸€idï¼Œé¢„ç•™å­—æ®µ',
+   avatar_url           varchar(300) not null comment '×îºóÒ»¸öÊıÖµ´ú±íÕı·½ĞÎÍ·Ïñ´óĞ¡£¨ÓĞ 0¡¢46¡¢64¡¢96¡¢132 ÊıÖµ¿ÉÑ¡£¬0 ´ú±í 640x640 µÄÕı·½ĞÎÍ·Ïñ£¬46 ±íÊ¾ 46x46 µÄÕı·½ĞÎÍ·Ïñ£¬Ê£ÓàÊıÖµÒÔ´ËÀàÍÆ¡£Ä¬ÈÏ132£©£¬ÓÃ»§Ã»ÓĞÍ·ÏñÊ±¸ÃÏîÎª¿Õ¡£ÈôÓÃ»§¸ü»»Í·Ïñ£¬Ô­ÓĞÍ·Ïñ URL ½«Ê§Ğ§¡£',
+   union_id             varchar(100) comment '¿ª·ÅÆ½Ì¨µÄÈ«¾ÖÎ¨Ò»id£¬Ô¤Áô×Ö¶Î',
+   phone_number         varchar(20),
    create_date          datetime not null,
    primary key (id)
 );
 
-alter table weixin_user comment 'ç”¨äºè®°å½•æ‰€æœ‰å¾®ä¿¡è®¿é—®çš„ç”¨æˆ·';
+alter table weixin_user comment 'ÓÃÓÚ¼ÇÂ¼ËùÓĞÎ¢ĞÅ·ÃÎÊµÄÓÃ»§';
+
+/*==============================================================*/
+/* Index: wx_user_idx                                           */
+/*==============================================================*/
+create unique index wx_user_idx on weixin_user
+(
+   open_id
+);
 
